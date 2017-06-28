@@ -15,14 +15,13 @@
  */
 package net.anthavio.airbrake;
 
-import java.util.LinkedList;
-import java.util.Map;
-
-import org.slf4j.MDC;
-
 import airbrake.AirbrakeNoticeBuilder;
 import airbrake.Backtrace;
 import airbrake.BacktraceLine;
+import org.slf4j.MDC;
+
+import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * Original airbrake.AirbrakeNoticeBuilderUsingFilteredSystemProperties has hardcoded org.apache.log4j.MDC usage
@@ -49,6 +48,7 @@ public class AirbrakeNoticeBuilderUsingFilteredSystemProperties extends Airbrake
 		addMDCToSession();
 		standardEnvironmentFilters();
 		ec2EnvironmentFilters();
+		setRequest("http://localhost", "");
 	}
 
 	public AirbrakeNoticeBuilderUsingFilteredSystemProperties(final String apiKey, final Backtrace backtraceBuilder,
@@ -59,6 +59,7 @@ public class AirbrakeNoticeBuilderUsingFilteredSystemProperties extends Airbrake
 		addMDCToSession();
 		standardEnvironmentFilters();
 		ec2EnvironmentFilters();
+		setRequest("http://localhost", "");
 	}
 
 	private void addMDCToSession() {
