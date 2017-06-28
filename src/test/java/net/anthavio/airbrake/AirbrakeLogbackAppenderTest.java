@@ -15,10 +15,13 @@
  */
 package net.anthavio.airbrake;
 
-import java.util.List;
-
+import airbrake.AirbrakeNotice;
+import airbrake.AirbrakeNotifier;
+import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.LoggerContext;
+import ch.qos.logback.classic.filter.ThresholdFilter;
+import ch.qos.logback.core.status.Status;
 import net.anthavio.airbrake.AirbrakeLogbackAppender.Notify;
-
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Rule;
@@ -28,12 +31,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.slf4j.LoggerFactory;
 
-import airbrake.AirbrakeNotice;
-import airbrake.AirbrakeNotifier;
-import ch.qos.logback.classic.Logger;
-import ch.qos.logback.classic.LoggerContext;
-import ch.qos.logback.classic.filter.ThresholdFilter;
-import ch.qos.logback.core.status.Status;
+import java.util.List;
 
 /**
  * 
@@ -98,8 +96,8 @@ public class AirbrakeLogbackAppenderTest {
         Assertions.assertThat(notice.env()).isEqualTo(appender.getEnv());
         Assertions.assertThat(notice.apiKey()).isEqualTo("whatever");
 
-        Assertions.assertThat(notice.component()).isNull();
-        Assertions.assertThat(notice.projectRoot()).isNull();
+        Assertions.assertThat(notice.component()).isNullOrEmpty();
+        Assertions.assertThat(notice.projectRoot()).isNullOrEmpty();
     }
 
     @Test
