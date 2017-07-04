@@ -26,13 +26,16 @@
 	  <tag>HEAD</tag>
   </scm>
 
-	<distributionManagement>
-		<downloadUrl>https://oss.sonatype.org/content/groups/public/net/anthavio/airbrake-logback</downloadUrl>
-		<site>
-			<id>github-project-site</id>
-			<url>gitsite:git@github.com/anthavio/airbrake-logback.git</url>
-		</site>
-	</distributionManagement>
+  <distributionManagement>
+    <repository>
+      <id>awv-releases</id>
+      <url>https://collab.mow.vlaanderen.be/artifacts/repository/maven-releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>awv-snapshots</id>
+      <url>https://collab.mow.vlaanderen.be/artifacts/repository/maven-snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 	
 	<issueManagement>
 		<system>GitHub</system>
