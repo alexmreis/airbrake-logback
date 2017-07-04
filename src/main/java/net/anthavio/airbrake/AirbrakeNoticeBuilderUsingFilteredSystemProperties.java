@@ -48,7 +48,6 @@ public class AirbrakeNoticeBuilderUsingFilteredSystemProperties extends Airbrake
 		addMDCToSession();
 		standardEnvironmentFilters();
 		ec2EnvironmentFilters();
-		setRequest("http://localhost", "");
 	}
 
 	public AirbrakeNoticeBuilderUsingFilteredSystemProperties(final String apiKey, final Backtrace backtraceBuilder,
@@ -59,7 +58,6 @@ public class AirbrakeNoticeBuilderUsingFilteredSystemProperties extends Airbrake
 		addMDCToSession();
 		standardEnvironmentFilters();
 		ec2EnvironmentFilters();
-		setRequest("http://localhost", "");
 	}
 
 	private void addMDCToSession() {
